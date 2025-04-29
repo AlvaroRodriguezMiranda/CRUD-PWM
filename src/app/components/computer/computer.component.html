@@ -1,0 +1,38 @@
+<div class="card shadow-sm rounded-4 p-3" style="width: 20rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{ computer?.cpu }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ computer?.gpu }}</h6>
+    <p class="card-text">
+      <strong>Released:</strong> {{ computer?.ram }}<br>
+    </p>
+
+    <div class="mt-3 d-flex gap-2">
+      <ng-container *ngIf="!isEditing">
+        <button class="btn btn-danger flex-fill" (click)="onClickDelete()">Eliminar</button>
+        <button class="btn btn-secondary flex-fill" (click)="startEditing()">Editar</button>
+      </ng-container>
+    </div>
+
+    <ng-container *ngIf="isEditing">
+      <div class="mt-4 border-top pt-3">
+        <div class="mb-2">
+          <label class="form-label">CPU</label>
+          <input type="text" class="form-control" [(ngModel)]="editComputer.cpu">
+        </div>
+        <div class="mb-2">
+          <label class="form-label">GPU</label>
+          <input type="text" class="form-control" [(ngModel)]="editComputer.gpu">
+        </div>
+        <div class="mb-2">
+          <label class="form-label">RAM</label>
+          <input type="number" class="form-control" [(ngModel)]="editComputer.ram">
+        </div>
+
+        <div class="d-flex gap-2">
+          <button class="btn btn-success flex-fill" (click)="saveChanges()">Guardar</button>
+          <button class="btn btn-outline-secondary flex-fill" (click)="cancelEditing()">Cancelar</button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="col-4" style="margin: 2rem;">
+  <div>
+    <label>CPU</label>
+    <input class="form-control" type="text" formControlName="cpu">
+  </div>
+  <div>
+    <label>GPU</label>
+    <input class="form-control" type="text" formControlName="gpu">
+  </div>
+  <div>
+    <label>RAM</label>
+    <input class="form-control" type="number" formControlName="ram">
+  </div>
+  <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">ADD</button>
+</form>
+
+<div class="row" style="margin: 2rem">
+  <app-computer class="col" style="margin: 2rem" *ngFor="let computer of computers" [computer]="computer"></app-computer>
+</div>
+
